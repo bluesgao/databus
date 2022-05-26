@@ -1,0 +1,24 @@
+[
+  {
+    "id": "ds1",
+    "type": "mysql",
+    "cfg": {
+      "url": "jdbc:mysql://gyl.mysql.dev.wyyt:6612/renewscc_dev?tinyInt1isBit=false&transformedBitIsBoolean=false",
+      "driverClassName": "com.mysql.jdbc.Driver",
+      "username": "zyc",
+      "password": "XNtyEFrgMwR5DYtBEjBG",
+      "database": "renewscc_dev"
+    }
+  },
+  {
+    "id": "ds2",
+    "type": "mysql",
+    "cfg": {
+      "url": "jdbc:mysql://gyl.mysql.dev.wyyt:6612/wyw_dev?tinyInt1isBit=false&transformedBitIsBoolean=false",
+      "driverClassName": "com.mysql.jdbc.Driver",
+      "username": "zyc",
+      "password": "XNtyEFrgMwR5DYtBEjBG",
+      "database": "wyw_dev"
+    }
+  }
+]

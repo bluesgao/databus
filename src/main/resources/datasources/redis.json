@@ -1,0 +1,13 @@
+[
+  {
+    "id": "redis1",
+    "type": "redis",
+    "cfg": {
+      "host": "127.0.0.1",
+      "port": "6379",
+      "username": "root",
+      "password": "123456",
+      "database": "0"
+    }
+  }
+]

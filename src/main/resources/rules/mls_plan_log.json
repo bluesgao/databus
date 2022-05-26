@@ -1,0 +1,31 @@
+{
+  "id": "mls_plan_log",
+  "desc": "计划日志",
+  "table": [
+    {
+      "database": "renewscc_dev",
+      "name": "trade_protocol_log",
+      "events": [
+        "insert",
+        "update"
+      ],
+      "ruleId": "r1"
+    }
+  ],
+  "rule": [
+    {
+      "id": "r1",
+      "mode": "binlog",
+      "dstCfg": [
+        {
+          "dsId": "ds2",
+          "dsType": "mysql",
+          "table": "mls_plan_log",
+          "uniqueFields": [
+            "id"
+          ]
+        }
+      ]
+    }
+  ]
+}

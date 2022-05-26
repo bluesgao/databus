@@ -1,0 +1,74 @@
+{
+  "id": "rule-003",
+  "desc": "用户数据同步-多表聚合到单表",
+  "exception": "discard",
+  "table": [
+    {
+      "name": "sys_user",
+      "events": [
+        "insert",
+        "update"
+      ],
+      "fields": [
+        "name",
+        "age"
+      ],
+      "ruleId": "target-1"
+    },
+    {
+      "name": "sys_addr",
+      "events": [
+        "insert",
+        "update"
+      ],
+      "fields": [
+        "name",
+        "addr"
+      ],
+      "ruleId": "target-1"
+    }
+  ],
+  "rule": [
+    {
+      "id": "target-1",
+      "mode":"sql",
+      "srcCfg": {
+        "dsId": "ds2",
+        "dsType": "mysql",
+        "table": "t_user_addr",
+        "script": "select * from t_user where t=?",
+        "paramFields": [
+          "user_no"
+        ]
+      },
+      "dstCfg": [
+        {
+          "dsId": "ds1",
+          "dsType": "mysql",
+          "table": "t_user_info",
+          "fields": {
+            "name": {
+              "mapping": {
+                "name": "new_user_name",
+                "type": "string",
+                "format": ""
+              },
+              "default": "test"
+            },
+            "user_no": {
+              "mapping": {
+                "name": "new_user_no",
+                "type": "string",
+                "format": ""
+              },
+              "default": "test"
+            }
+          },
+          "uniqueFields": [
+            "user_no"
+          ]
+        }
+      ]
+    }
+  ]
+}
